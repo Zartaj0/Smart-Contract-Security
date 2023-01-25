@@ -2,16 +2,13 @@
 let address;
 async function main() {
 
-    const Example = await hre.ethers.getContractFactory("Example");
-    const example = await Weak.deploy();
+    // const Example = await hre.ethers.getContractFactory("Example");
+    // const example = await Example.deploy("ZartajAfser");
 
-    await example.deployed();
+    // await example.deployed();
 
 
-    address = example.address;
-}
-
-async function getShortStr() {
+    address = "0xB575a60AD828F9C16FF0A687e4358f97cbdf8346";
     const a = await ethers.provider.getStorageAt(address, 0);
     console.log(a);
     const b = await ethers.provider.getStorageAt(address, 1);
@@ -30,6 +27,15 @@ async function getShortStr() {
     console.log(g);
 
 
+}
+
+main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+
+async function getShortStr() {
+    
 
 
 
