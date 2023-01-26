@@ -15,6 +15,7 @@ async function main() {
   await example.addUser("nopassword");
   await example.addUser("hellopassword");
 
+  // Reading data from private array
   const index1user1 = await example.getArrayLocation(6, 0, 2);
   const index2user1 = await index1user1.add('1');
 
@@ -25,12 +26,14 @@ async function main() {
   const index1user3 = await example.getArrayLocation(6, 2, 2);
   const index2user3 = await index1user3.add('1');
 
-  //private mapping slot
+  //reading data from private mapping slot
   const mappingSlot = await example.getMapLocation(7,1); 
 
 
 
   //"0xB575a60AD828F9C16FF0A687e4358f97cbdf8346";
+
+  
   const a = await ethers.provider.getStorageAt(address, 0);
   console.log(a);
 
