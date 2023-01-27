@@ -1,4 +1,5 @@
 # Solidity smart contract security threats
+This repository is highly ionspired by https://www.youtube.com/channel/UCJWh7F3AFyQ_x01VKzr9eyA
 
 ## This repository is a collection of some of the security threats to any solidity smart contracts.
 ### Every Vulnerable Contract and it's security mesaures are inside the contract folder.
@@ -9,7 +10,8 @@ Contracts Serial No.
 4. Risks of using delegatecall
 5. Denial of service attack
 6. phishing with tx.origin
-7. 
+7. Front Running
+8. Signature Replay
 
 
 
