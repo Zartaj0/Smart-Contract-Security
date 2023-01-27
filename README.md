@@ -9,6 +9,8 @@ Contracts Serial No.
 4. Risks of using delegatecall
 5. Denial of service attack
 6. phishing with tx.origin
+7. 
+
 
 
 
