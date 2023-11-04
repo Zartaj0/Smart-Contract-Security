@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
 
 contract MultiSigWallet {
     using ECDSA for bytes32;
+    using MessageHashUtils for bytes32;
 
     address[2] public owners;
 
@@ -14,7 +16,11 @@ contract MultiSigWallet {
 
     function deposit() external payable {}
 
-    function transfer(address _to, uint _amount, bytes[2] memory _sigs) external {
+    function transfer(
+        address _to,
+        uint _amount,
+        bytes[2] memory _sigs
+    ) external {
         bytes32 txHash = getTxHash(_to, _amount);
         require(_checkSigs(_sigs, txHash), "invalid sig");
 
@@ -22,7 +28,10 @@ contract MultiSigWallet {
         require(sent, "Failed to send Ether");
     }
 
-    function getTxHash(address _to, uint _amount) public view returns (bytes32) {
+    function getTxHash(
+        address _to,
+        uint _amount
+    ) public view returns (bytes32) {
         return keccak256(abi.encodePacked(_to, _amount));
     }
 
@@ -47,13 +56,9 @@ contract MultiSigWallet {
 
 //PREVENTION
 
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
-
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/cryptography/ECDSA.sol";
-
-contract MultiSigWallet {
+contract MultiSigWalletSafe {
     using ECDSA for bytes32;
+    using MessageHashUtils for bytes32;
 
     address[2] public owners;
     mapping(bytes32 => bool) public executed;
