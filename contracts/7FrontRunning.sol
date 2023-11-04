@@ -41,10 +41,7 @@ contract FindThisHash {
 }
 
 //PREVENTION 
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
-
-import "@OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/Strings.sol";
+import "@OpenZeppelin/contracts/utils/Strings.sol";
 
 /*
    Now Let's see how to guard from front running using commit reveal scheme.
