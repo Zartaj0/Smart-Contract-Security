@@ -28,7 +28,7 @@ contract Wallet {
     }
 
     function transfer(address payable _to, uint _amount) public {
-//Prevention : Using msg.sender instead of tx.origin        
+//Prevention : Using msg.sender instead of tx.origin
         require(tx.origin == owner, "Not owner");
 
         (bool sent, ) = _to.call{value: _amount}("");
