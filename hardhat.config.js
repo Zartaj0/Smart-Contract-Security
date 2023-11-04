@@ -6,7 +6,6 @@ require("@nomiclabs/hardhat-etherscan");
 
 
 
-/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
     version: "0.8.16",
@@ -29,8 +28,6 @@ module.exports = {
     }
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
     apiKey: process.env.ETHERSCAN
   },
   gasReporter: {
